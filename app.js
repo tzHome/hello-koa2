@@ -56,9 +56,11 @@ app.use(async (ctx, next) => {
 //仅对/api开头的url进行格式化处理
 app.use(response_formatter('^/api'));
 
+//router.redirect('/users', 'api');
 router.use('/', index.routes(), index.allowedMethods());
 router.use('/users', users.routes(), users.allowedMethods());
 router.use('/api', api.routes(), api.allowedMethods());
+
 
 app.use(router.routes(), router.allowedMethods());
 // response
